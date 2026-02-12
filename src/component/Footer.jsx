@@ -2,12 +2,12 @@ import Filter from "./TasksFilter";
 
 const Footer = () => {
   return (
-    <div>
       <footer className="footer">
         <span className="todo-count">1 items left</span>
         <Filter />
+        <button className="clear-completed">Clear completed</button>
       </footer>
-    </div>
+
   );
 };
 

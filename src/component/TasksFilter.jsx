@@ -1,6 +1,6 @@
  const TasksFilter = () => {
     return(
-        <div>
+    
           <ul className="filters">
         <li>
           <button className="selected">All</button>
@@ -12,8 +12,6 @@
           <button>Completed</button>
         </li>
       </ul>
-      <button className="clear-completed">Clear completed</button>
-        </div>
     )
  }
 
