@@ -1,12 +1,17 @@
 import Task from "./Task";
 
+function TaskList({ tasks }) {
 
-const TaskList = () => {
   return (
-      <ul>
-        <Task />
-      </ul>
+    <ul className="todo-list">
+      {tasks.map(task => (
+        <Task
+          key={task.id}
+          {...task}
+        />
+      ))}
+    </ul>
   );
-};
+}
 
 export default TaskList;

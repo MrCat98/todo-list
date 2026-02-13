@@ -1,21 +1,30 @@
 
+import { format } from 'date-fns'
 
-const Task=()=>{
+
+const Task=({description, completed, created, editing})=>{
     return(
-        <>
-            <li className="editing">
-        <div className="view">
-          <input className="toggle" type="checkbox" />
-          <label>
-              <span class="description">Active task</span>
-              <span class="created">created 5 minutes ago</span>
+        <li className={completed ? "completed" : ""}>
+          <div className={"view"}>
+            <input className="toggle" 
+            type="checkbox" 
+            checked={completed}
+            />
+            <label>
+              <span className="description">{description}</span>
+              <span className="created">
+                created 
+                {format(created, 'MMM d, yyyy h:mm a')}
+              </span>
             </label>
-          <button className="icon icon-edit" ></button>
-          <button className="icon icon-destroy" ></button>
-        </div>
-        <input type="text" className="edit" value="Editing task" />
-      </li>
-        </>
+            <button className="icon icon-edit" />
+            <button className="icon icon-destroy" />
+            </div> 
+            {editing && (
+              <input type="text" className="edit" defaultValue={description} />
+            )}
+          
+        </li>
     )
 }
 

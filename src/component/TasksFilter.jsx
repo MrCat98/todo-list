@@ -1,4 +1,6 @@
- const TasksFilter = () => {
+
+
+const TasksFilter = () => {
     return(
     
           <ul className="filters">
