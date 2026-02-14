@@ -7,7 +7,7 @@ import './index.css'
 
 
   function App() {
-    const[tasks, setTasks] = useState([
+    const[tasks] = useState([
        {
         id:2,
         description: 'Walk the dog',

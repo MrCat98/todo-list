@@ -259,7 +259,7 @@ body {
 }
 
 .todo-list li .icon-destroy:after {
-  content: 'Ã—';
+  content: '×';
 }
 
 .todo-list li .icon-edit {
@@ -268,7 +268,7 @@ body {
 }
 
 .todo-list li .icon-edit:after {
-  content: 'âœŽ';
+  content: '✎';
 }
 
 .todo-list li .edit {

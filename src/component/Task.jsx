@@ -4,11 +4,12 @@ import { format } from 'date-fns'
 
 const Task=({description, completed, created, editing})=>{
     return(
-        <li className={completed ? "completed" : ""}>
+        <li className={`${completed ? "completed" : ""} ${editing ? "editing" : ""}`}>
           <div className={"view"}>
             <input className="toggle" 
             type="checkbox" 
             checked={completed}
+            readOnly
             />
             <label>
               <span className="description">{description}</span>
