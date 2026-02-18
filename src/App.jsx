@@ -7,7 +7,18 @@ import './index.css'
 
 
   function App() {
-    const onDalete = (id) =>{
+
+    const onAddTask = (description)=>{
+         const newTask = {
+        id:tasks.length + 1,
+        description: description,
+        completed: false,
+        created: new Date(),
+        editing: false,
+      }
+      setTasks(tasks => [...tasks, newTask])
+    }
+    const onDelete = (id) =>{
       setTasks(tasks =>
         tasks.filter(task => task.id !== id)
       )
@@ -60,12 +71,14 @@ import './index.css'
 
   return (
     <div className="todoapp">
-    <NewTaskForm />
+    <NewTaskForm 
+    onAddTask = {onAddTask}
+    />
   
     <TaskList tasks = {tasks} 
     onToggle = {onToggle} 
     onEdit = {onEdit}
-    onDelete = {onDalete}
+    onDelete = {onDelete}
     
     />
     
