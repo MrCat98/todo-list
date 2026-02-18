@@ -9,10 +9,11 @@ const Task=({description,
      editing,
       onToggle,
       onEdit,
-      onDelete
-      })=>{
+      onDelete}) => {
+
     return(
-        <li className={`${completed ? "completed" : ""} ${editing ? "editing" : ""}`}>
+        <li className={`${completed ? "completed" : ""} 
+        ${editing ? "editing" : ""}`}>
           <div className={"view"}>
             <input className="toggle" 
             type="checkbox" 
@@ -26,11 +27,15 @@ const Task=({description,
                 {format(created, 'MMM d, yyyy h:mm a')}
               </span>
             </label>
-            <button className="icon icon-edit" onClick={()=> onEdit(Task.id)}/>
-            <button className="icon icon-destroy" onClick={()=> onDelete(Task.id)}/>
+            <button className="icon icon-edit" 
+            onClick={()=> onEdit(Task.id)}/>
+            <button className="icon icon-destroy" 
+            onClick={()=> onDelete(Task.id)}/>
             </div> 
             {editing && (
-              <input type="text" className="edit" defaultValue={description} />
+              <input type="text" 
+              className="edit" 
+              defaultValue={description} />
             )}
           
         </li>
