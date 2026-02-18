@@ -1,6 +1,9 @@
 import Task from "./Task";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, 
+  onToggle,
+  onEdit,
+ onDelete}) {
 
   return (
     <ul className="todo-list">
@@ -8,6 +11,9 @@ function TaskList({ tasks }) {
         <Task
           key={task.id}
           {...task}
+          onToggle = {()=> onToggle(task.id)}
+          onEdit ={()=> onEdit(task.id)}
+          onDelete = {()=> onDelete(task.id)}
         />
       ))}
     </ul>

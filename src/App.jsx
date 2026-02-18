@@ -7,7 +7,31 @@ import './index.css'
 
 
   function App() {
-    const[tasks] = useState([
+    const onDalete = (id) =>{
+      setTasks(tasks =>
+        tasks.filter(task => task.id !== id)
+      )
+    }
+
+    const onEdit = (id) => {
+      setTasks(tasks =>
+        tasks.map(task =>
+          task.id === id ? {...task, editing: !task.editing}
+          :task
+        )
+      )
+    }
+
+    const onToggle = (id) =>{
+      setTasks(tasks=>
+        tasks.map(task=>
+          task.id === id ? {...task, completed: !task.completed} : task
+        )
+      )
+    }
+
+    
+    const[tasks, setTasks] = useState([
        {
         id:2,
         description: 'Walk the dog',
@@ -38,7 +62,12 @@ import './index.css'
     <div className="todoapp">
     <NewTaskForm />
   
-    <TaskList tasks = {tasks} />
+    <TaskList tasks = {tasks} 
+    onToggle = {onToggle} 
+    onEdit = {onEdit}
+    onDelete = {onDalete}
+    
+    />
     
     <Footer />
     </div>

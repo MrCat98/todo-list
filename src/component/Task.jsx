@@ -2,14 +2,22 @@
 import { format } from 'date-fns'
 
 
-const Task=({description, completed, created, editing})=>{
+
+const Task=({description,
+   completed,
+    created,
+     editing,
+      onToggle,
+      onEdit,
+      onDelete
+      })=>{
     return(
         <li className={`${completed ? "completed" : ""} ${editing ? "editing" : ""}`}>
           <div className={"view"}>
             <input className="toggle" 
             type="checkbox" 
             checked={completed}
-            readOnly
+            onChange={onToggle}
             />
             <label>
               <span className="description">{description}</span>
@@ -18,8 +26,8 @@ const Task=({description, completed, created, editing})=>{
                 {format(created, 'MMM d, yyyy h:mm a')}
               </span>
             </label>
-            <button className="icon icon-edit" />
-            <button className="icon icon-destroy" />
+            <button className="icon icon-edit" onClick={()=> onEdit(Task.id)}/>
+            <button className="icon icon-destroy" onClick={()=> onDelete(Task.id)}/>
             </div> 
             {editing && (
               <input type="text" className="edit" defaultValue={description} />
