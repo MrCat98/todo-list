@@ -7,17 +7,32 @@ import './index.css'
 
 
   function App() {
-
-    const onAddTask = (description)=>{
-         const newTask = {
-        id:tasks.length + 1,
-        description: description,
+    
+    const[tasks, setTasks] = useState(
+      [
+        {
+          id: 1,
+          description: 'Buy groceries',
+          completed: false,
+          created: new Date(),
+          editing: false,
+        }
+      ]
+    )
+    
+    const onAddTask=(description)=>{
+      const newTask = {
+        id:crypto.randomUUID(),
+        description,
         completed: false,
         created: new Date(),
         editing: false,
       }
-      setTasks(tasks => [...tasks, newTask])
+     setTasks(prevTasks => [...prevTasks, newTask])
     }
+    
+    
+
     const onDelete = (id) =>{
       setTasks(tasks =>
         tasks.filter(task => task.id !== id)
@@ -36,41 +51,21 @@ import './index.css'
     const onToggle = (id) =>{
       setTasks(tasks=>
         tasks.map(task=>
-          task.id === id ? {...task, completed: !task.completed} : task
+          task.id === id 
+          ? {...task, completed: !task.completed} 
+        : task
         )
       )
     }
 
-    
-    const[tasks, setTasks] = useState([
-       {
-        id:2,
-        description: 'Walk the dog',
-        completed: true,
-        created: new Date(),
-        editing: false,
-      },
-      {
-        id: 1,
-        description: 'Buy groceries',
-        completed: false,
-        created: new Date(),
-        editing: true,
-      },
-      {
-        id: 3,
-        description: 'Read a book',
-        completed: false,
-        created: new Date(),
-        editing: false,
-        
-      }
-      
-     
-    ])
 
+    
+
+    
+   
   return (
     <div className="todoapp">
+
     <NewTaskForm 
     onAddTask = {onAddTask}
     />
@@ -79,7 +74,6 @@ import './index.css'
     onToggle = {onToggle} 
     onEdit = {onEdit}
     onDelete = {onDelete}
-    
     />
     
     <Footer />

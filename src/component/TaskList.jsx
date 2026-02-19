@@ -1,9 +1,11 @@
 import Task from "./Task";
 
-function TaskList({ tasks, 
+function TaskList({ 
+  tasks, 
   onToggle,
   onEdit,
- onDelete}) {
+ onDelete,
+}) {
 
   return (
     <ul className="todo-list">

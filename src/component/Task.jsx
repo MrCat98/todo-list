@@ -1,25 +1,42 @@
 
 import { format } from 'date-fns'
+import {useState} from 'react'
 
 
 
-const Task=({description,
+
+
+const Task=({
+  description,
    completed,
     created,
      editing,
       onToggle,
       onEdit,
-      onDelete}) => {
+      onDelete,
+     }) => {
+
+          const [value, setValue] = useState('');
+
+          const hendelSubmit = (e) =>{
+            if (e.key === 'Enter' && value.trim(){
+              
+            })
+          }
 
     return(
         <li className={`${completed ? "completed" : ""} 
-        ${editing ? "editing" : ""}`}>
+        ${editing ? "editing" : ""}`}
+        >
+
           <div className={"view"}>
             <input className="toggle" 
             type="checkbox" 
             checked={completed}
             onChange={onToggle}
             />
+
+
             <label>
               <span className="description">{description}</span>
               <span className="created">
@@ -35,7 +52,10 @@ const Task=({description,
             {editing && (
               <input type="text" 
               className="edit" 
-              defaultValue={description} />
+              value={description}
+              onKeyDown={handelSubmit}
+              autoFocus
+              />
             )}
           
         </li>
