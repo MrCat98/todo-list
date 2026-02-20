@@ -10,17 +10,17 @@ import './index.css'
     
     const[tasks, setTasks] = useState(
       [
-        {
-          id: 1,
-          description: 'Buy groceries',
-          completed: false,
-          created: new Date(),
-          editing: false,
-        }
+              {
+        id: crypto.randomUUID(),
+        description: 'Buy groceries',
+        completed: false,
+        created: new Date(),
+        editing: false,
+      }
       ]
     )
     
-    const onAddTask=(description)=>{
+    const onAddTask = (description)=>{
       const newTask = {
         id:crypto.randomUUID(),
         description,
@@ -39,14 +39,26 @@ import './index.css'
       )
     }
 
-    const onEdit = (id) => {
-      setTasks(tasks =>
-        tasks.map(task =>
-          task.id === id ? {...task, editing: !task.editing}
-          :task
-        )
-      )
-    }
+  const onEdit = (id, newDescription = null) => {
+  setTasks(tasks =>
+    tasks.map(task => {
+      if (task.id !== id) return task;
+      if (newDescription !== null) {
+        return {
+          ...task,
+          description: newDescription,
+          editing: false,
+        };
+      }
+      return {
+        ...task,
+        editing: true,
+      };
+    })
+  );
+};
+
+
 
     const onToggle = (id) =>{
       setTasks(tasks=>

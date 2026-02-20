@@ -13,9 +13,9 @@ function TaskList({
         <Task
           key={task.id}
           {...task}
-          onToggle = {()=> onToggle(task.id)}
-          onEdit ={()=> onEdit(task.id)}
-          onDelete = {()=> onDelete(task.id)}
+          onToggle = {onToggle}
+          onEdit = {onEdit}
+          onDelete = {onDelete}
         />
       ))}
     </ul>
