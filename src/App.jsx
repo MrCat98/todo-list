@@ -19,6 +19,23 @@ import './index.css'
       }
       ]
     )
+    const [filter,setFilter] = useState('all')
+
+  const filterTasks =(()=>{
+    switch (filter) {
+      case 'active':
+        return tasks.filter(task => !task.completed)
+
+      case 'completed':
+        return tasks.filter(task => task.completed)
+
+      case 'all':
+      default:
+        return tasks
+  }
+})()
+    
+    
     
     const onAddTask = (description)=>{
       const newTask = {
@@ -36,6 +53,12 @@ import './index.css'
     const onDelete = (id) =>{
       setTasks(tasks =>
         tasks.filter(task => task.id !== id)
+      )
+    }
+
+    const deleteAll = ()=>{
+      setTasks(tasks=>
+        tasks.filter(task => !task.completed)
       )
     }
 
@@ -76,19 +99,26 @@ import './index.css'
     
    
   return (
-    <div className="todoapp">
+    <div className="todoApp">
 
     <NewTaskForm 
     onAddTask = {onAddTask}
     />
   
-    <TaskList tasks = {tasks} 
+    <TaskList 
+    tasks = {filterTasks}
     onToggle = {onToggle} 
     onEdit = {onEdit}
     onDelete = {onDelete}
     />
     
-    <Footer />
+    <Footer 
+    deleteAll ={deleteAll}
+    tasks = {filterTasks}
+    filter= {filterTasks}
+    setFilter={setFilter}
+
+    />
     </div>
     );
 }
