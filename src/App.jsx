@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState,useMemo} from 'react'
 import Footer from "./component/Footer";
 import NewTaskForm from "./component/NewTaskForm";
 import TaskList from "./component/TaskList";
@@ -33,7 +33,7 @@ import './index.css'
       default:
         return tasks
   }
-})()
+})
     
     
     
@@ -93,31 +93,35 @@ import './index.css'
       )
     }
 
+    const countTasks = useMemo(()=>{
+      return tasks.filter (task => !task.completed).length
 
+
+    },[tasks])
     
 
     
    
   return (
-    <div className="todoApp">
+    <div className="todoapp">
 
     <NewTaskForm 
     onAddTask = {onAddTask}
     />
   
     <TaskList 
-    tasks = {filterTasks}
+    tasks = {filterTasks()}
     onToggle = {onToggle} 
     onEdit = {onEdit}
     onDelete = {onDelete}
     />
     
     <Footer 
-    deleteAll ={deleteAll}
-    tasks = {filterTasks}
+    deleteAll = {deleteAll}
+    tasks = {tasks}
     filter= {filterTasks}
-    setFilter={setFilter}
-
+    setFilter= {setFilter}
+    countTasks={countTasks}
     />
     </div>
     );

@@ -3,10 +3,13 @@ import Filter from "./TasksFilter";
 const Footer = ({tasks,
   filter,
     setFilter,
-  deleteAll}) => {
+  deleteAll,
+countTasks}) => {
   return (
       <footer className="footer">
-        <span className="todo-count">1 items left</span>
+        <span className="todo-count">
+          {countTasks} items left return 
+        </span>
         <Filter 
         tasks = {tasks}
     filter ={filter}
