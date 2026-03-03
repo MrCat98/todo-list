@@ -3,22 +3,29 @@ import Footer from "./component/Footer";
 import NewTaskForm from "./component/NewTaskForm";
 import TaskList from "./component/TaskList";
 import './index.css'
+import { formatDistanceToNow } from 'date-fns';
 
 
 
   function App() {
+
+    // const date = new Date()
+
     
+
+
     const[tasks, setTasks] = useState(
       [
               {
         id: crypto.randomUUID(),
-        description: 'Buy groceries',
+        description:'learn react',
         completed: false,
-        created: new Date(),
+        created:new Date(),
         editing: false,
       }
       ]
     )
+  
     const [filter,setFilter] = useState('all')
 
   const filterTasks =(()=>{

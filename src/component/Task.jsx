@@ -1,7 +1,11 @@
-import { format } from 'date-fns'
+import {formatDistanceToNow } from 'date-fns'
 
 const Task = ({ onToggle, onEdit, onDelete, ...task }) => {
-  const { id, description, completed, created, editing } = task
+  const { id, description, completed, editing } = task
+
+  const createdTime = formatDistanceToNow(
+    new Date(task.created)
+  )
 
   const handleSubmit = (e) => {
     if (e.key === 'Enter' ){
@@ -27,7 +31,7 @@ const Task = ({ onToggle, onEdit, onDelete, ...task }) => {
         <label>
           <span className="description">{description}</span>
           <span className="created">
-            created {format(created, 'MMM d, yyyy h:mm a')}
+            created {createdTime}
           </span>
         </label>
 
