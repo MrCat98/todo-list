@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Task from "./Task";
 
 function TaskList({ 
@@ -20,6 +21,13 @@ function TaskList({
       ))}
     </ul>
   );
+}
+
+TaskList.PropTypes = {
+tasks:PropTypes.array, 
+onToggle:PropTypes.func.isRequired,
+onEdit:PropTypes.func.isRequired,
+onDelete:PropTypes.func.isRequired,
 }
 
 export default TaskList;

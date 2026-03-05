@@ -1,4 +1,4 @@
-
+import PropTypes from "prop-types";
 
 const TasksFilter = ({
     filter,
@@ -32,5 +32,10 @@ const TasksFilter = ({
       </ul>
     )
  }
+
+TasksFilter.propTypes = {
+  filter:PropTypes.string.isRequired,
+  setFilter:PropTypes.func.isRequired,
+}
 
     export default TasksFilter;

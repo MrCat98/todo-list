@@ -1,8 +1,9 @@
 import {useState,useMemo} from 'react'
-import Footer from "./component/Footer";
+import Footer from "./component/Footer"
 import NewTaskForm from "./component/NewTaskForm";
-import TaskList from "./component/TaskList";
+import TaskList from "./component/TaskList"
 import './index.css'
+import PropTypes from 'prop-types'
 
 
 
@@ -131,6 +132,14 @@ import './index.css'
     />
     </div>
     );
+}
+
+App.PropTypes = {
+  tasks:PropTypes.array, 
+  filter:PropTypes.string,
+  setFilter:PropTypes.func,
+  countTasks:PropTypes.number,
+  deleteAll:PropTypes.func,
 }
 
 export default App;

@@ -1,4 +1,5 @@
 import {formatDistanceToNow } from 'date-fns'
+import PropTypes from 'prop-types'
 
 const Task = ({ onToggle, onEdit, onDelete, ...task }) => {
   const { id, description, completed, editing } = task
@@ -57,6 +58,13 @@ const Task = ({ onToggle, onEdit, onDelete, ...task }) => {
       )}
     </li>
   )
+}
+
+Task.PropTypes={
+  onToggle:PropTypes.func,
+  onEdit:PropTypes.func,
+  onDelete:PropTypes.func,
+  task:PropTypes.array,
 }
 
 export default Task
