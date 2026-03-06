@@ -35,4 +35,8 @@ Footer.propTypes = {
   deleteAll:PropTypes.func.isRequired,
 }
 
+Footer.defaultProps ={
+  countTasks:0
+}
+
 export default Footer;

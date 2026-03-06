@@ -67,4 +67,11 @@ Task.PropTypes={
   task:PropTypes.array,
 }
 
+Task.defaultProps = {
+  onToggle: () => {},
+  onEdit: () => {},
+  onDelete: () => {},
+  task: [],
+}
+
 export default Task

@@ -28,5 +28,4 @@ const NewTaskForm = ({onAddTask}) =>{
     NewTaskForm.propTypes={
         onAddTask:PropTypes.func.isRequired
     }
-
 export default NewTaskForm;

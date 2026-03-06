@@ -38,4 +38,8 @@ TasksFilter.propTypes = {
   setFilter:PropTypes.func.isRequired,
 }
 
+TasksFilter.defaultProps = {
+  filter: 'all',
+  setFilter: () => {},
+}
     export default TasksFilter;

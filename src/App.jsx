@@ -9,11 +9,6 @@ import PropTypes from 'prop-types'
 
   function App() {
 
-    // const date = new Date()
-
-    
-
-
     const[tasks, setTasks] = useState(
       [
               {
@@ -102,8 +97,6 @@ import PropTypes from 'prop-types'
 
     const countTasks = useMemo(()=>{
       return tasks.filter (task => !task.completed).length
-
-
     },[tasks])
     
 
@@ -140,6 +133,14 @@ App.PropTypes = {
   setFilter:PropTypes.func,
   countTasks:PropTypes.number,
   deleteAll:PropTypes.func,
+}
+
+App.defaultProps = {
+  tasks: [],
+  filter: 'all',
+  setFilter: () => {},
+  countTasks: 0,
+  deleteAll: () => {},
 }
 
 export default App;

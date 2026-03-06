@@ -30,4 +30,8 @@ onEdit:PropTypes.func.isRequired,
 onDelete:PropTypes.func.isRequired,
 }
 
+TaskList.defaultProps = {
+tasks: [],
+}
+
 export default TaskList;
